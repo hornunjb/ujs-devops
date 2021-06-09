@@ -1,10 +1,6 @@
 name: Promote app to production
 
 on:
-  # We will remove this later, but it's required to get the workflow to show up initially
-  push:
-    branches: [ 3-configure ]
-
   workflow_dispatch:
 
 jobs:
