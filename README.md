@@ -55,6 +55,8 @@ previous branch.
 
         runs-on: ubuntu-latest
         needs: build
+        
+        steps:
     ```
 1. Let's pull down our JAR that we published as part of the build job. 
     - This just involves to using the download-artifact (using the name of the artifact that we want to retrieve)
