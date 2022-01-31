@@ -6,7 +6,7 @@ name: Java CI with Maven
 # whenever this is pushed to main, trigger this workflow
 on:
   push:
-    branches: [ main ]
+    branches: [ 1-build ]
 
 # these are things we're going to execute (the actual actions)
 jobs:
@@ -22,5 +22,13 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+        
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: ./mvnw -B package --file pom.xml
+           mkdir artifacts && cp target/*.jar artifacts
+           
+    - name: Persist Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: JARtifact
+        path: artifacts
